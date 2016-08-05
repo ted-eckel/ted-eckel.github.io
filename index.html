@@ -260,6 +260,7 @@
 
             if (bluesDestroyed < 0) {
               gameOver();
+              document.getElementById('game-over').style.display = 'block';
             }
           }
         }
@@ -359,6 +360,7 @@
           });
         }
 
+
         function gameOver() {
           stop = true;
         }
@@ -366,26 +368,24 @@
 
 
     </script>
+    <p style="color: green;">
+      You can shoot ships by pressing the space bar, but you can only <br/>
+      get points by colliding with blue alien ships. If you collide with <br/>
+      red alien ships, your points decrease. If your points go below zero, you lose.<br/><br/>
+      Use arrow keys to move left, right, up and down.
+    </p>
     <div id="game-over" style="
         display: none;
         text-align: center;
-        padding-top: 92px;
         z-index: 1;
         width: 600px;
         height: 360px;
         overflow: auto;
         margin: auto;
-        position: absolute;
+        position: inherit;
         color: white">
       <h2>Game Over!</h2>
-      <a href="javascript:void(0)" class="button restart">Try again?</a>
+      <a href="javascript:location.reload(true)" class="button restart" style="color: green;">Try again?</a>
     </div>
-    <p style="color: green;">
-      You can shoot ships by pressing the space bar, but you can only <br/>
-      get points by colliding with blue alien ships. If you collide with <br/>
-      red alien ships, your points decrease. If your points go below zero, you lose.<br/><br/>
-      Use arrow keys to move left, right, up and down.<br/><br/>
-      Refresh the page to play again.
-    </p>
   </body>
 </html>
