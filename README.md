@@ -1,5 +1,5 @@
 # Alien Collision
-<img src="images/aliencollision.jpg" alt="screenshot" width="400"/>
+<img src="assets/images/aliencollision.jpg" alt="screenshot" width="400"/>
 
 A simple game with inspiration taken from the arcade classic, Space Invaders, with a twist.
 
