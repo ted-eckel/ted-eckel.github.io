@@ -1,0 +1,54 @@
+@font-face { font-family: UniversalJack; src: url('../universaljack.ttf');}
+
+body {
+  font-family: UniversalJack;
+  font-size: 14pt;
+  background-color: black;
+  text-align: center;
+  color: green;
+  margin: 0;
+}
+
+#game-over {
+  display: none;
+  text-align: center;
+  z-index: 1;
+  width: 600px;
+  height: 105px;
+  overflow: auto;
+  margin: auto;
+  position: inherit;
+  color: white;
+}
+
+#paragraph {
+  color: green;
+}
+
+.button .restart {
+  color: green;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  bottom:0;
+  right: 0;
+  left: 0;
+  clear: both;
+  height: 50px;
+  background-color: white;
+  text-align: center;
+  font-family: Helvetica
+}
+
+footer div {
+  margin-top: 12.5px;
+}
+
+footer div a {
+  color: green;
+  text-decoration: none;
+  margin-left: 10px;
+  margin-right: 10px
+}
