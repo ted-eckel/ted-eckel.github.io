@@ -47,7 +47,7 @@ function wrapper(){
     return el;
   }
 
-  blues = [];
+  var blues = [];
 
   function Blue(el) {
     el = el || {};
@@ -57,7 +57,7 @@ function wrapper(){
 
     el.x = CANVAS_WIDTH / 4 + Math.random() * CANVAS_WIDTH / 2;
     el.y = 0;
-    el.xVelocity = 0
+    el.xVelocity = 0;
     el.yVelocity = 2;
 
     el.width = 54;
@@ -69,7 +69,7 @@ function wrapper(){
     };
 
     el.draw = function() {
-      canvas.drawImage(blueImage, this.x, this.y)
+      canvas.drawImage(blueImage, this.x, this.y);
     };
 
     el.update = function() {
@@ -89,9 +89,9 @@ function wrapper(){
     };
 
     return el;
-  };
+  }
 
-  reds = [];
+  var reds = [];
 
   function Red(el) {
     el = el || {};
@@ -101,7 +101,7 @@ function wrapper(){
 
     el.x = CANVAS_WIDTH / 4 + Math.random() * CANVAS_WIDTH / 2;
     el.y = 0;
-    el.xVelocity = 0
+    el.xVelocity = 0;
     el.yVelocity = 2;
 
     el.width = 54;
@@ -113,7 +113,7 @@ function wrapper(){
     };
 
     el.draw = function() {
-      canvas.drawImage(redImage, this.x, this.y)
+      canvas.drawImage(redImage, this.x, this.y);
     };
 
     el.update = function() {
@@ -133,7 +133,7 @@ function wrapper(){
     };
 
     return el;
-  };
+  }
 
   var backgroundReady = false;
   var backgroundImage = new Image();
@@ -282,7 +282,7 @@ function wrapper(){
 
     canvas.drawImage(backgroundImage, 0, 0);
 
-    canvas.drawImage(spaceshipImage, spaceship.x, spaceship.y)
+    canvas.drawImage(spaceshipImage, spaceship.x, spaceship.y);
 
     Lasers.forEach(function(laser) {
       laser.draw();
@@ -332,7 +332,7 @@ function wrapper(){
       if(collides(blue, spaceship)) {
 
         blue.explode();
-        ++bluesDestroyed
+        ++bluesDestroyed;
       }
     });
 
@@ -341,7 +341,7 @@ function wrapper(){
 
         red.explode();
         spaceship.explode();
-        --bluesDestroyed
+        --bluesDestroyed;
       }
     });
   }
