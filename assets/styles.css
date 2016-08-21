@@ -10,7 +10,7 @@ body {
 }
 
 #game-over {
-  display: none;
+  display: block;
   text-align: center;
   z-index: 1;
   width: 600px;
@@ -25,7 +25,7 @@ body {
   color: green;
 }
 
-.button .restart {
+.button.restart {
   color: green;
 }
 

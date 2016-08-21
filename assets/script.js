@@ -1,18 +1,33 @@
+var CANVAS_WIDTH = 888;
+var CANVAS_HEIGHT = 480;
+var FPS = 30;
+var newCanvas;
+var currentElement;
+var canvasElement;
+var canvas;
+var bluesDestroyed;
+var blues;
+var Lasers;
+var stop;
+var reds;
+var spaceship;
+
+Element.prototype.remove = function() {
+    this.parentElement.removeChild(this);
+};
+
 function wrapper(){
-  var CANVAS_WIDTH = 888;
-  var CANVAS_HEIGHT = 480;
-  var FPS = 30;
 
-  var stop = false;
+  stop = false;
 
-  var spaceship = {
+  spaceship = {
     x: 50,
     y: 270,
     width: 26,
     height: 48,
   };
 
-  var Lasers = [];
+  Lasers = [];
 
   function Laser(el) {
     el.active = true;
@@ -47,7 +62,7 @@ function wrapper(){
     return el;
   }
 
-  var blues = [];
+  blues = [];
 
   function Blue(el) {
     el = el || {};
@@ -91,7 +106,7 @@ function wrapper(){
     return el;
   }
 
-  var reds = [];
+  reds = [];
 
   function Red(el) {
     el = el || {};
@@ -140,7 +155,8 @@ function wrapper(){
   backgroundImage.onload = function() {
     backgroundReady = true;
   };
-  backgroundImage.src = "assets/images/stockvault-simple-starry-space-background114093.jpg";
+  backgroundImage.src =
+  "assets/images/stockvault-simple-starry-space-background114093.jpg";
 
   var redReady = false;
   var redImage = new Image();
@@ -163,15 +179,14 @@ function wrapper(){
   };
   spaceshipImage.src = "assets/images/noflames.png";
 
-  var newCanvas = document.createElement("canvas");
+  newCanvas = document.createElement("canvas");
   newCanvas.setAttribute("id", "game");
   newCanvas.setAttribute("width", CANVAS_WIDTH);
   newCanvas.setAttribute("height", CANVAS_HEIGHT);
-  var currentElement = document.getElementById("game-over");
+  currentElement = document.getElementById("paragraph");
   document.body.insertBefore(newCanvas, currentElement);
-
-  var canvasElement = document.getElementById('game');
-  var canvas = canvasElement.getContext('2d');
+  canvasElement = document.getElementById('game');
+  canvas = canvasElement.getContext('2d');
 
 
   setInterval(function() {
@@ -250,7 +265,14 @@ function wrapper(){
 
       if (bluesDestroyed < 0) {
         gameOver();
-        document.getElementById('game-over').style.display = 'block';
+        document.getElementById('paragraph').insertAdjacentHTML('beforebegin',
+          "<div id=\"game-over\">\
+            <h2>Game Over!</h2>\
+            <a href=\"javascript:reloadCanvas();\" \
+              class=\"button restart\">Try again?\
+            </a>\
+          </div>"
+        );
       }
     }
   }
@@ -310,7 +332,7 @@ function wrapper(){
     a.y + a.height > b.y;
   }
 
-  var bluesDestroyed = 0;
+  bluesDestroyed = 0;
 
   function handleCollisions() {
     Lasers.forEach(function(laser) {
@@ -350,4 +372,15 @@ function wrapper(){
   function gameOver() {
     stop = true;
   }
+}
+
+function reloadCanvas(){
+  document.getElementById('game-over').remove();
+  blues = [];
+  reds = [];
+  Lasers = [];
+  bluesDestroyed = 0;
+  spaceship.x = 50;
+  spaceship.y = 270;
+  stop = false;
 }
