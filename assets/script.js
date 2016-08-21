@@ -163,8 +163,6 @@ function wrapper(){
   };
   spaceshipImage.src = "assets/images/noflames.png";
 
-  // document.body.onload = addElement;
-
   var newCanvas = document.createElement("canvas");
   newCanvas.setAttribute("id", "game");
   newCanvas.setAttribute("width", CANVAS_WIDTH);
@@ -313,10 +311,6 @@ function wrapper(){
   }
 
   var bluesDestroyed = 0;
-
-  // if (bluesDestroyed < 0) {
-  //   document.location.reload(true);
-  // };
 
   function handleCollisions() {
     Lasers.forEach(function(laser) {
